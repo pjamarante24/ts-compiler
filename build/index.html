@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mini-Compiler</title>
+
+    <style>
+      body {
+        font-family: sans-serif;
+        box-sizing: border-box;
+      }
+
+      .code-editor {
+        width: 95%;
+        height: 300px;
+      }
+
+      .code-editor .editor {
+        width: 100%;
+        height: 90%;
+        padding: 10px;
+      }
+
+      .result-container {
+        display: flex;
+      }
+
+      .result-container > * {
+        border: 1px solid black;
+        width: 24%;
+        height: 300px;
+      }
+
+      .result-container > * > .title {
+        border-bottom: 1px solid black;
+        padding: 15px 10px;
+        margin: 0;
+      }
+
+      .result-container > * > .result {
+        width: 98%;
+        height: 80%;
+      }
+
+      .symbol-table {
+        border-collapse: collapse;
+      }
+
+      .symbol-table td,
+      .symbol-table th {
+        border: 1px solid #ddd;
+        padding: 8px;
+      }
+
+      .symbol-table tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+
+      .symbol-table tr:hover {
+        background-color: #ddd;
+      }
+
+      .symbol-table th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #04aa6d;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="code-editor">
+      <textarea id="editor" class="editor" id="editor"></textarea>
+    </div>
+    <div class="result-container">
+      <div class="tokens">
+        <h3 class="title">Tokens</h3>
+        <textarea class="result" id="tokens"></textarea>
+      </div>
+      <div class="ast">
+        <h3 class="title">AST</h3>
+        <textarea class="result" id="ast"></textarea>
+      </div>
+      <div class="errors">
+        <h3 class="title">Errors</h3>
+        <ul class="result" id="errors"></ul>
+      </div>
+      <div class="generated-code">
+        <h3 class="title">Generated Code</h3>
+        <textarea class="result" id="generated-code"></textarea>
+      </div>
+      <div>
+        <h3 class="title">
+          Haga click en este boton para descargar el archivo compilado
+        </h3>
+        <button id="compile-button">Compile</button>
+      </div>
+    </div>
+    <h3>Symbols Table</h3>
+    <table class="symbol-table" id="symbol-table">
+      <thead>
+        <tr>
+          <th>Identifier</th>
+          <th>Scope</th>
+          <th>Kind</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <script src="./index.js"></script>
+  </body>
+</html>
